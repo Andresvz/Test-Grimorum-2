@@ -66,6 +66,8 @@ function($scope,$timeout,AdminServ,$rootScope,Notification){
 
     }else{
       AdminServ.editProduct($rootScope.obj,function(response){
+        $rootScope.obj.init =  $rootScope.obj.id;
+        delete $rootScope.obj.id; 
         console.log(response)
         $scope.produts.push(response.data); 
         Notification.success('Producto Editado!');

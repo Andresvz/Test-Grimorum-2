@@ -18,7 +18,7 @@ module.exports = {
     });
   },
   editProduct : function(req,res){
-    Product.update({"id":req.body.id }, req.body)
+    Product.update({"id":req.body.init }, req.body)
     .exec(function(err, product) {
       if (err) { return res.serverError(err); }
       res.json(product);
