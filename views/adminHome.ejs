@@ -21,20 +21,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="product in produts">
+      <tr ng-repeat="product in $parent.produts">
         <td style="width: 300px;">
           <img src="{{product.image}}" alt="" style="width: 200px;height: 130px;">
         </td>
-        <td>{{prodcut.name}}</td>
+        <td>{{product.name}}</td>
         <td>{{product.description}}</td>
         <td>{{product.features}}</td>
         <td>{{product.price}}</td>
         <td>{{product.stock}}</td>
         <td>
-          <a  ng-click="showM(product)"class="btn btn-warning "> 
+          <a  ng-click="showM(product,$index)"class="btn btn-warning "> 
             <i class="fa fa-pencil" aria-hidden="true"></i>
           Editar</a>
-          <a  class="btn btn-danger " ng-click="">
+        <a  class="btn btn-danger " ng-click="deleteP(product.id,$index)">
             <i class="fa fa-trash" aria-hidden="true"></i> Eliminar
           </a>
         </td>
@@ -50,8 +50,8 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" ng-show"!$parent.edit")>Agregar Producto</h4>
-        <h4 class="modal-title" ng-show"$parent.edit">Editar Producto</h4>
+        <h4 class="modal-title" ng-show="!$parent.edit")>Agregar Producto</h4>
+        <h4 class="modal-title" ng-show="$parent.edit">Editar Producto</h4>
       </div>
       <div class="modal-body">
         <div class="content">

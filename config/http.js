@@ -23,6 +23,7 @@ module.exports.http = {
       '404',
       '500'
     ],
+    cache:500
   }
 
 };

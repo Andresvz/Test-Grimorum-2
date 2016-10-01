@@ -71,14 +71,14 @@ module.exports = {
     });
   },
   beforeUpdate: function (values, cb) {
-    if(values.newPassword){
+    if(values.password){
       bcrypt.genSalt(10, function(err, salt) {
         if (err) return cb(err);
 
-        bcrypt.hash(values.newPassword, salt, function(err, hash) {
+        bcrypt.hash(values.password, salt, function(err, hash) {
           if(err) return cb(err);
 
-          delete values.newPassword;
+          delete values.password;
           values.password = hash;
           return cb();
         });
