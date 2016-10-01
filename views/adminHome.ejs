@@ -1,0 +1,127 @@
+<div class="container" ng-controller="AdminCtrl" ng-cloak>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 style="display: inline-block; " class="page-header">Productos <small>Administrador de Productos</small></h1>
+      <button  style="     display: inline-block;
+        float: right;"class="btn btn-success" ng-click="showM()"><i class="fa fa-plus"></i> Agregar</button>
+    </div>
+  </div>
+  <br>
+  <br>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Caracteristicas</th>
+        <th>Precio</th>
+        <th>Inventario</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="product in produts">
+        <td style="width: 300px;">
+          <img src="{{product.image}}" alt="" style="width: 200px;height: 130px;">
+        </td>
+        <td>{{prodcut.name}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.features}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.stock}}</td>
+        <td>
+          <a  ng-click="showM(product)"class="btn btn-warning "> 
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          Editar</a>
+          <a  class="btn btn-danger " ng-click="">
+            <i class="fa fa-trash" aria-hidden="true"></i> Eliminar
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal" ng-controller="AdminCtrl">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" ng-show"!$parent.edit")>Agregar Producto</h4>
+        <h4 class="modal-title" ng-show"$parent.edit">Editar Producto</h4>
+      </div>
+      <div class="modal-body">
+        <div class="content">
+          <div form="formM" class="form-horizontal">
+            <fieldset>
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Nombre</label>  
+                <div class="col-md-4">
+                  <input id="name" name="name" type="text" ng-model="$parent.obj.name"
+                  placeholder="nombre" class="form-control input-md" required>
+                </div>
+              </div>
+
+              <!-- Prepended text-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="price">Precio</label>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input id="price" name="price" class="form-control" ng-model="$parent.obj.price"
+                    placeholder="" type="number" required>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="invetory">Inventario</label>  
+                <div class="col-md-4">
+                  <input id="invetory" name="invetory" type="number" ng-model="$parent.obj.stock"
+                  placeholder="99" class="form-control input-md" required>
+
+                </div>
+              </div>
+
+              <!-- Textarea -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="Description">Descripcion</label>
+                <div class="col-md-4">                     
+                  <textarea class="form-control" id="Description" ng-model="$parent.obj.description" name="Description">
+                  </textarea>
+                </div>
+              </div>
+
+              <!-- Textarea -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="Description">Caracteristicas</label>
+                <div class="col-md-4">                     
+                  <textarea class="form-control" id="Description" ng-model="$parent.obj.features" name="Description">
+                  </textarea>
+                </div>
+              </div>
+              <!--[> File Button <] -->
+              <!--<div class="form-group">-->
+                <!--<label class="col-md-4 control-label" for="image">Imagen</label>-->
+                <!--<div class="col-md-4">-->
+                  <!--<t3bs-browser file-model="$parent.obj.image" file-accept="*" file-requred></t3bs-browser>-->
+                <!--</div>-->
+              <!--</div>-->
+
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="add()"ng-disabled="formM.$invalid">Agregar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

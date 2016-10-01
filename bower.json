@@ -1,0 +1,13 @@
+{
+  "name": "Shop Grimorum",
+  "description": "Test Grimorum",
+  "main": "app.js",
+  "authors": [
+    "andres"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+  }
+}
